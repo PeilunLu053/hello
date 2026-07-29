@@ -1,0 +1,56 @@
+[build]
+  command = "npm run ci"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[context.production]
+  command = "npm run ci"
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.deploy-preview]
+  command = "npm run ci"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+
+[context.branch-deploy]
+  command = "npm run ci"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+
+[[redirects]]
+  from = "/assets/qishu-building-industry-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-building-industry-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/assets/qishu-cost-management-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-cost-management-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/assets/qishu-decoration-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-decoration-demo.mp4"
+  status = 302
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), geolocation=(), microphone=()"

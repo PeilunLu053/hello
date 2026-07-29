@@ -1,0 +1,15 @@
+{
+  "name": "gibira-static-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "build:netlify": "node scripts/build-site.js && node scripts/prepare-netlify.js",
+    "verify:netlify": "node scripts/verify-netlify-bundle.js",
+    "test": "node --test",
+    "ci": "npm run build:netlify && npm run verify:netlify && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
