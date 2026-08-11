@@ -1,21 +1,85 @@
 [build]
-  command = "npm run verify"
+  command = "npm run ci"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
 
-[build.processing.html]
-  pretty_urls = false
-
 [context.production]
-  command = "npm run verify"
+  command = "npm run ci"
+
+[context.production.environment]
+  NODE_ENV = "production"
 
 [context.deploy-preview]
-  command = "npm run verify"
+  command = "npm run ci"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
 
 [context.branch-deploy]
-  command = "npm run verify"
+  command = "npm run ci"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+
+[[redirects]]
+  from = "/qishu-bp"
+  to = "/qishu-bp/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qishu-bp/qishu-ai"
+  to = "/qishu-bp/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qishu-bp/qishu-ai.html"
+  to = "/qishu-bp/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/qishu-bp/qishu-funding-workbook"
+  to = "/qishu-bp/qishu-funding-workbook.html"
+  status = 200
+
+[[redirects]]
+  from = "/qishu-bp/assets/qishu-architecture-cad-workflow.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-architecture-cad-workflow.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/qishu-bp/assets/qishu-cad-recognition-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-cad-recognition-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/qishu-bp/assets/qishu-cost-management-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-cost-management-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/qishu-bp/assets/qishu-decoration-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-decoration-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/qishu-bp/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/assets/qishu-building-industry-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-building-industry-demo.mp4"
+  status = 302
+
+[[redirects]]
+  from = "/assets/qishu-cost-management-demo.mp4"
+  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-cost-management-demo.mp4"
+  status = 302
 
 [[redirects]]
   from = "/assets/qishu-decoration-demo.mp4"
@@ -25,10 +89,30 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/qishu-bp/assets/*"
+  [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
+  for = "/qishu-bp/assets/qishu-funding-use.xlsx"
+  [headers.values]
+    Content-Disposition = "attachment; filename=\"qishu-funding-use.xlsx\""
+
+[[headers]]
   for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/qishu-bp/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/qishu-bp/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 

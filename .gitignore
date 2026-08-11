@@ -1,10 +1,19 @@
-.DS_Store
 node_modules/
 dist/
+tmp/
 .netlify/
-.impeccable/
-design-qa.md
+.DS_Store
+*.docx
+qishu-ai-gpt-analysis-package.html
 
-# GitHub rejects individual files above 100 MB. This video remains served by
-# the existing production Netlify asset through the redirect in netlify.toml.
-public/assets/qishu-decoration-demo.mp4
+# These large videos are hosted by the existing Netlify site and redirected
+# from the public asset paths. Keep them out of Git and the generated bundle.
+assets/qishu-building-industry-demo.mp4
+assets/qishu-cost-management-demo.mp4
+assets/qishu-decoration-demo.mp4
+
+# Qishu BP media remains on the existing Netlify asset host.
+qishu-bp/assets/qishu-architecture-cad-workflow.mp4
+qishu-bp/assets/qishu-cad-recognition-demo.mp4
+qishu-bp/assets/qishu-cost-management-demo.mp4
+qishu-bp/assets/qishu-decoration-demo.mp4
