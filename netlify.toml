@@ -1,37 +1,21 @@
 [build]
-  command = "npm run ci"
+  command = "npm run verify"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
 
-[context.production]
-  command = "npm run ci"
+[build.processing.html]
+  pretty_urls = false
 
-[context.production.environment]
-  NODE_ENV = "production"
+[context.production]
+  command = "npm run verify"
 
 [context.deploy-preview]
-  command = "npm run ci"
-
-[context.deploy-preview.environment]
-  NODE_ENV = "development"
+  command = "npm run verify"
 
 [context.branch-deploy]
-  command = "npm run ci"
-
-[context.branch-deploy.environment]
-  NODE_ENV = "development"
-
-[[redirects]]
-  from = "/assets/qishu-building-industry-demo.mp4"
-  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-building-industry-demo.mp4"
-  status = 302
-
-[[redirects]]
-  from = "/assets/qishu-cost-management-demo.mp4"
-  to = "https://friendly-griffin-a8be75.netlify.app/assets/qishu-cost-management-demo.mp4"
-  status = 302
+  command = "npm run verify"
 
 [[redirects]]
   from = "/assets/qishu-decoration-demo.mp4"
@@ -41,7 +25,7 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.html"

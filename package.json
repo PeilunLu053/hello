@@ -1,13 +1,15 @@
 {
-  "name": "gibira-static-site",
+  "name": "qishu-funding-page",
   "version": "1.0.0",
   "private": true,
+  "description": "启枢独立融资页面及完整资金详表",
   "scripts": {
-    "build": "node scripts/build-site.js",
-    "build:netlify": "node scripts/build-site.js && node scripts/prepare-netlify.js",
-    "verify:netlify": "node scripts/verify-netlify-bundle.js",
-    "test": "node --test",
-    "ci": "npm run build:netlify && npm run verify:netlify && npm test"
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "verify": "npm run build && node scripts/verify.mjs",
+    "deploy:preview": "npm run verify && npx --yes netlify deploy --dir=dist",
+    "deploy:prod": "npm run verify && npx --yes netlify deploy --prod --dir=dist"
   },
   "engines": {
     "node": ">=20"

@@ -6,20 +6,28 @@ brand
 
 ## Users
 
+投资人、产业合作方与研发协作方。他们通过单页快速判断启枢的工程能力、产业验证、商业进展、团队基础与融资资金用途，并决定是否进入深度沟通。
+
 ## Product Purpose
 
-This static website presents GIBIRA and its core AI Harness system, with Qishu AI as the current commercialization focus. Success means a reader can quickly understand why Qishu AI is not a one-off tool, how it enters real engineering workflows, how it creates revenue, and why the broader Harness system can expand across multiple applied AI scenarios.
+以一个完整的启枢融资单页面呈现产品能力、真实工程证据、团队与生态、商业路径和资金资料。成功意味着访问者能够顺畅阅读、理解证据边界，并直接进入演示、材料或合作沟通。
 
 ## Brand Personality
 
+精密、坚实、克制。页面应像一份可以被审阅的工程样机与融资底稿，而不是泛化的科技宣传模板。
+
 ## Anti-references
+
+不做通用 SaaS 模板、不堆砌空泛技术口号、不恢复 GIBIRA 官网或其他业务页面、不以过度装饰牺牲信息可读性，也不使用需要放大或滚动才能读完的微小人物履历文字。
 
 ## Design Principles
 
-1. Preserve the existing GIBIRA frame: dark background, fine grid, white typography, amber-orange emphasis, thin lines, and measured motion.
-2. Turn complex business logic into readable native web diagrams, not static images or dense prose.
-4. Protect page structure and navigation unless a task explicitly asks to change them.
+1. 启枢主体优先：始终保持单页面、一套启枢融资叙事。
+2. 证据胜于口号：真实素材、试点、数据与明确边界优先。
+3. 密度必须可读：复杂履历和资金信息完整呈现，但不裁切、不遮挡。
+4. 交互服务理解：动效、人物切换与目录帮助定位和比较，不制造额外负担。
+5. 桌面与移动一致可靠：布局可以重排，内容与功能不能丢失。
 
 ## Accessibility & Inclusion
 
-Target WCAG AA contrast for text and controls. Keep text selectable and searchable. Respect reduced-motion preferences by ensuring content is visible without animation.
+正文和人物履历保持舒适的中文阅读字号与行高；支持浏览器缩放、键盘焦点与 reduced-motion；交互目标可发现，移动端无页面级横向溢出，文字、头像、标签和说明不得互相覆盖或被裁切。

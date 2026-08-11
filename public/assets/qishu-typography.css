@@ -1,0 +1,836 @@
+/*
+ * Qishu financing-site typography system
+ * Semantic roles follow the project-wide Typography specification. This file
+ * loads after the legacy inline styles so every route shares one final scale.
+ */
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+
+  --text-display: clamp(3.25rem, 5vw, 4.25rem);
+  --text-h1: clamp(2.375rem, 4vw, 3.25rem);
+  --text-h2: clamp(1.75rem, 2.8vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 1.8vw, 1.5625rem);
+  --text-card-title: 1.0625rem;
+  --text-lead: clamp(1rem, 1.25vw, 1.1875rem);
+  --text-body: 0.9375rem;
+  --text-card-body: 0.875rem;
+  --text-small: 0.8125rem;
+  --text-caption: 0.75rem;
+  --text-micro: 0.6875rem;
+  --text-nav: 0.8125rem;
+  --text-button: 0.875rem;
+  --text-kpi: clamp(1.875rem, 3vw, 2.75rem);
+  --text-data: clamp(1.25rem, 1.8vw, 1.75rem);
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --leading-display: 1.04;
+  --leading-h1: 1.08;
+  --leading-h2: 1.15;
+  --leading-h3: 1.25;
+  --leading-card-title: 1.3;
+  --leading-lead: 1.55;
+  --leading-body: 1.65;
+  --leading-card-body: 1.55;
+  --leading-small: 1.5;
+  --leading-caption: 1.4;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--weight-medium) !important;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+body :is(p, li, td, dd, figcaption, caption) {
+  font-weight: var(--weight-regular) !important;
+  text-wrap: pretty;
+}
+
+body :is(strong, b, th, dt) {
+  font-weight: var(--weight-semibold) !important;
+}
+
+body :is(small, label) {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-caption) !important;
+}
+
+/* Display, page and section hierarchy */
+.page-qishu-ai .financing-hero-content h1 {
+  max-width: 18ch;
+  font-size: var(--text-display) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-display) !important;
+  letter-spacing: -0.035em !important;
+  white-space: normal !important;
+}
+
+.page-qishu-funding-workbook .xlsx-workbook-toolbar h1 {
+  font-size: var(--text-h1) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h1) !important;
+  letter-spacing: -0.025em !important;
+}
+
+.page-qishu-ai :is(
+  .financing-section__copy > h2,
+  .qishu-section__header > h2,
+  .team-section > h2,
+  .advisor-section > h2,
+  .gibira-story-panel__heading > h3,
+  .qishu-data-copy > h2,
+  .qishu-data-page__intro > h2,
+  .qishu-revenue-page__intro > h2,
+  .cad-model-story__left > h2,
+  .section.qishu-video-section > h2
+),
+.footer-inner > .footer-copy > h2 {
+  font-size: var(--text-h2) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h2) !important;
+  letter-spacing: -0.018em !important;
+  white-space: normal !important;
+}
+
+.page-qishu-ai :is(
+  .qishu-data-copy > h3,
+  .qishu-data-page__intro > h3,
+  .qishu-revenue-page__intro > h3,
+  .qishu-company-foundation__intro h3,
+  .trial-panel__intro h3,
+  .trial-subsection h4
+) {
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h3) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Leads and long-form copy */
+.page-qishu-ai :is(
+  .section-lead,
+  .gibira-story-panel__lead,
+  .qishu-data-conclusion-strip,
+  .qishu-data-investor-conclusion p
+),
+.page-qishu-funding-workbook .xlsx-workbook-toolbar p:not(.section-kicker) {
+  max-width: 68ch;
+  font-size: var(--text-lead) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-lead) !important;
+  letter-spacing: 0 !important;
+}
+
+.page-qishu-ai :is(
+  .financing-narrative,
+  .qishu-body-copy p,
+  .gibira-story-panel__heading > p:not(.gibira-story-panel__index):not(.gibira-story-panel__lead),
+  .qishu-company-foundation__intro p,
+  .qishu-external-collaboration p,
+  .financing-note,
+  .financing-vdr-note,
+  .qishu-evidence-line,
+  .qishu-revenue-page__intro > p:not(.section-kicker):not(.section-lead),
+  .qishu-data-copy > p:not(.section-kicker):not(.section-lead),
+  .footer-inner > .footer-copy > p
+) {
+  max-width: 68ch;
+  font-size: var(--text-body) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-body) !important;
+  letter-spacing: 0 !important;
+}
+
+.page-qishu-ai .financing-section__copy .section-lead,
+.page-qishu-ai .section-lead,
+.page-qishu-ai .financing-card p,
+.page-qishu-ai .financing-mini-row p {
+  display: block !important;
+  overflow: visible !important;
+  -webkit-box-orient: initial !important;
+  -webkit-line-clamp: unset !important;
+}
+
+/* Card titles: one restrained, scannable tier */
+.page-qishu-ai :is(
+  .project-card h3,
+  .info-card h3,
+  .financing-card h3,
+  .financing-market-visual h3,
+  .financing-compare h3,
+  .gibira-capability-card h4,
+  .gibira-ecosystem-card h4,
+  .gibira-project-route h4,
+  .qishu-funding-evidence h3,
+  .qishu-company-foundation__evidence h4,
+  .qishu-module-video__copy h3,
+  .qishu-cad-demo__copy h3,
+  .qishu-video-card h3,
+  .case-card h3,
+  .architecture-node h3,
+  [data-cad-step] h3,
+  .evidence-card h3,
+  .vertical-card h3,
+  .timeline-item h3,
+  .qishu-revenue-chart h3,
+  .qishu-revenue-panel h3,
+  .qishu-revenue-conclusions h3,
+  .qishu-revenue-tier-card h3,
+  .qishu-revenue-charge-grid h3,
+  .qishu-revenue-income-grid h3,
+  .qishu-revenue-example-grid h3,
+  .qishu-revenue-renewal-grid h3,
+  .qishu-revenue-upgrade h3,
+  .qishu-revenue-usage-band h3,
+  .qishu-full-funding__table h3
+) {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+  letter-spacing: -0.005em !important;
+}
+
+.page-qishu-ai :is(
+  .financing-flow-node strong,
+  .process-node strong,
+  .gibira-process-flow strong,
+  .qishu-data-asset-list strong,
+  .qishu-demo-slot__flow strong,
+  .qishu-flywheel article strong,
+  .qishu-revenue-type-strip strong,
+  .qishu-revenue-upgrade article strong,
+  .qishu-revenue-expansion-path article strong,
+  .qishu-cad-demo__points strong
+) {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+}
+
+/* Card body and supporting descriptions */
+.page-qishu-ai :is(
+  .project-card p,
+  .info-card p,
+  .financing-card p,
+  .financing-market-visual p,
+  .financing-compare p,
+  .financing-mini-row p,
+  .gibira-capability-card p,
+  .gibira-ecosystem-card p,
+  .gibira-profile p,
+  .gibira-project-route p,
+  .qishu-company-foundation__evidence p,
+  .qishu-stage-chart p,
+  .qishu-module-video__copy p,
+  .qishu-cad-demo__copy p,
+  .qishu-video-card p,
+  .case-card p,
+  .architecture-node p,
+  [data-cad-step] p,
+  .evidence-card li,
+  .vertical-card p,
+  .qishu-revenue-chart header p,
+  .qishu-revenue-metrics p,
+  .qishu-revenue-type-strip p,
+  .qishu-revenue-conclusions p,
+  .qishu-revenue-tier-card > p,
+  .qishu-revenue-tier-card dd,
+  .qishu-revenue-charge-grid p,
+  .qishu-revenue-income-grid p,
+  .qishu-revenue-renewal-grid p,
+  .qishu-revenue-example-grid p,
+  .qishu-revenue-usage-band p,
+  .qishu-revenue-usage-band li,
+  .qishu-revenue-example-grid li,
+  .qishu-data-asset-list p,
+  .qishu-data-lift-band p,
+  .qishu-cad-demo__points p
+) {
+  font-size: var(--text-card-body) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-card-body) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Personnel cards: names stay prominent; every other field remains 14px. */
+:is(#team, #ai-research-team, #collaborative-research-team, #advisors) .team-profile-copy h3 {
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.01em !important;
+}
+
+:is(#team, #ai-research-team, #collaborative-research-team, #advisors)
+  .team-profile-copy > :not(h3),
+:is(#team, #ai-research-team, #collaborative-research-team, #advisors)
+  .team-profile-copy > :not(h3) * {
+  font-size: var(--text-card-body) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-card-body) !important;
+  letter-spacing: 0 !important;
+}
+
+:is(#team, #ai-research-team, #collaborative-research-team, #advisors)
+  .team-profile-copy strong {
+  font-weight: var(--weight-semibold) !important;
+}
+
+:is(#team, #ai-research-team, #collaborative-research-team, #advisors)
+  :is(.team-profile-position, .team-profile-role) {
+  font-size: var(--text-card-body) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-body) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Labels, navigation, captions and controls */
+.section-kicker,
+.qishu-section__eyebrow,
+.financing-brand-line,
+.financing-section__marker,
+.gibira-story-panel__index,
+.gibira-capability-card > span,
+.gibira-ecosystem-card > span,
+.gibira-project-route header > span,
+.gibira-project-route header > small,
+.qishu-company-foundation__intro > div > span,
+.qishu-company-foundation__evidence > article > span,
+.qishu-funding-legend :is(span, small),
+.qishu-stage-chart span,
+.qishu-full-funding__heading span,
+.qishu-full-funding__table header span,
+.qishu-investment-summary span,
+.gibira-process-flow span,
+.financing-card > span,
+.financing-mini-row > span,
+.financing-flow-node > span,
+.financing-flow-node > small,
+.process-node > span,
+.qishu-module-video__copy > span,
+.qishu-video-card > span,
+.case-card > span,
+.architecture-node > span,
+[data-cad-step] > span,
+[data-cad-step] small,
+.evidence-card__label,
+.vertical-card :is(span, small),
+.qishu-revenue-chart__labels span,
+.qishu-revenue-tier-card header span,
+.qishu-revenue-tier-card header small,
+.qishu-revenue-charge-grid article > span,
+.qishu-revenue-expansion-path article > span,
+.qishu-revenue-upgrade header > span,
+.qishu-revenue-usage-band > div > span,
+.qishu-revenue-income-grid article > span,
+.qishu-revenue-renewal-grid article > span,
+.qishu-revenue-example-grid header > span,
+.qishu-revenue-tier-card dt,
+.qishu-revenue-note,
+.qishu-company-foundation__boundary,
+.gibira-ecosystem-note,
+.qishu-cad-demo__note {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+#collaborative-research-team .collaborative-thumbnail span {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0 !important;
+}
+
+.qishu-cad-demo__points strong > span {
+  font-size: var(--text-micro) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+#workflow .financing-section__title--stacked span + span {
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h3) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.qishu-data-conclusion-strip span {
+  font-size: inherit !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: inherit !important;
+  letter-spacing: 0 !important;
+}
+
+.qishu-architecture-demo__header > span,
+.qishu-architecture-demo__steps > li > span,
+.qishu-demo-slot__flow > div > span,
+.qishu-funding-donut span,
+.qishu-revenue-upgrade article > span {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.qishu-architecture-demo__fallback > a {
+  font-size: var(--text-button) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-small) !important;
+}
+
+.qishu-compare-chart header > span {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+  letter-spacing: -0.005em !important;
+}
+
+.qishu-compare-row em {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+}
+
+.qishu-funnel article > span {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+}
+
+.qishu-revenue-formula :is(span, b) {
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h3) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.financing-funding-item > span {
+  font-size: var(--text-body) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-body) !important;
+  letter-spacing: 0 !important;
+}
+
+.qishu-directory__group h2,
+.qishu-directory__header > div > span,
+.qishu-directory__group a > span,
+.qishu-directory__peek,
+.qishu-opportunity-carousel__zoom-label,
+.cad-model-visual__hud,
+.cad-export,
+.cad-label,
+.cad-face {
+  font-size: var(--text-micro) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.qishu-directory__header strong,
+.qishu-directory__group a strong,
+.qishu-directory-trigger,
+.qishu-directory-trigger :is(span, strong),
+.qishu-directory__header button,
+.xlsx-sheet-tabs a {
+  font-size: var(--text-nav) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+}
+
+.qishu-directory__group a[aria-current="page"] strong,
+.xlsx-sheet-tabs a[aria-current="page"] {
+  font-weight: var(--weight-medium) !important;
+}
+
+.button,
+button,
+[role="button"] {
+  font-size: var(--text-button) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+}
+
+.qishu-image-strip figcaption span,
+.qishu-wide-image figcaption span,
+.qishu-opportunity-carousel__slide figcaption span,
+.qishu-image-lightbox figcaption span {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.qishu-image-strip figcaption strong,
+.qishu-wide-image figcaption strong,
+.qishu-opportunity-carousel__slide figcaption strong,
+.qishu-image-lightbox figcaption strong {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+}
+
+.contact-stack :is(a, span),
+.footer-line {
+  font-size: var(--text-small) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-small) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Data, KPIs and tables */
+.page-qishu-ai :is(
+  .metric strong,
+  .trial-metric strong,
+  .trial-roi-grid strong,
+  .qishu-revenue-metrics strong,
+  .qishu-revenue-example-grid header > strong,
+  .qishu-data-flywheel-core strong
+),
+.page-qishu-funding-workbook .xlsx-investor-summary strong {
+  font-size: var(--text-kpi) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-qishu-ai :is(
+  .qishu-funding-donut strong,
+  .qishu-stage-chart strong,
+  .financing-funding-item strong,
+  .qishu-funnel strong,
+  .qishu-revenue-core strong,
+  .qishu-revenue-lanes strong,
+  .qishu-revenue-donut strong,
+  .qishu-revenue-donut-wrap li strong,
+  .qishu-revenue-engine__core strong,
+  .qishu-data-barrier-strip article > span,
+  .qishu-investment-summary strong
+) {
+  font-size: var(--text-data) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.015em !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-qishu-ai :is(.qishu-table, .detail-data-table, .qishu-revenue-detail-table, .qishu-full-funding table) {
+  font-size: var(--text-card-body) !important;
+  line-height: var(--leading-card-body) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-qishu-ai :is(.qishu-table, .detail-data-table, .qishu-revenue-detail-table, .qishu-full-funding table) th {
+  font-size: var(--text-small) !important;
+  font-weight: var(--weight-semibold) !important;
+  line-height: var(--leading-small) !important;
+  letter-spacing: 0.02em !important;
+}
+
+.page-qishu-ai :is(.qishu-table, .detail-data-table, .qishu-revenue-detail-table, .qishu-full-funding table) td {
+  font-size: var(--text-card-body) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-card-body) !important;
+}
+
+.page-qishu-ai :is(.qishu-table, .detail-data-table, .qishu-revenue-detail-table, .qishu-full-funding table)
+  tr.is-total :is(th, td) {
+  font-weight: var(--weight-semibold) !important;
+}
+
+.page-qishu-funding-workbook .xlsx-investor-summary :is(span, small),
+.page-qishu-funding-workbook .xlsx-sheet-panel header span,
+.page-qishu-funding-workbook .xlsx-sheet-panel small,
+.page-qishu-funding-workbook .xlsx-sheet-tabs span,
+.page-qishu-funding-workbook .xlsx-sheet-scroll-hint {
+  font-size: var(--text-caption) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: var(--leading-caption) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.page-qishu-funding-workbook .xlsx-sheet-panel h2 {
+  font-size: var(--text-h3) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-h3) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.page-qishu-funding-workbook .xlsx-data-table {
+  font-size: var(--text-small) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.55 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-qishu-funding-workbook .xlsx-data-table :is(th, td) {
+  font-size: var(--text-small) !important;
+  font-weight: var(--weight-regular) !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+}
+
+.page-qishu-funding-workbook .xlsx-data-table tr.is-title th {
+  font-size: var(--text-card-title) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: var(--leading-card-title) !important;
+}
+
+.page-qishu-funding-workbook .xlsx-data-table tr.is-header th,
+.page-qishu-funding-workbook .xlsx-data-table tr.is-total td,
+.page-qishu-funding-workbook .xlsx-data-table .is-token {
+  font-weight: var(--weight-semibold) !important;
+}
+
+/* Loading copy is UI status, not a display heading. */
+.site-loader__text {
+  font-size: var(--text-body) !important;
+  font-weight: var(--weight-medium) !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Keep heading-adjacent labels and short explanatory copy aligned with
+   centered titles. */
+.page-qishu-ai .qishu-section__header > :is(
+  .section-kicker,
+  .qishu-section__eyebrow,
+  .financing-brand-line,
+  .section-lead,
+  .financing-narrative
+),
+.page-qishu-ai :is(.team-section, .advisor-section) > :is(
+  .section-kicker,
+  h2,
+  .section-lead
+),
+.page-qishu-ai :is(
+  .qishu-revenue-page--overview,
+  .qishu-revenue-page--billing,
+  .qishu-revenue-page--expansion
+) .qishu-revenue-page__intro > :is(.section-kicker, .section-lead),
+.page-qishu-ai .qishu-architecture-demo__header > p {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+}
+
+/* The financing narratives called out in review use the same centered axis as
+   their section titles. This exception is intentionally limited to each
+   section's direct explanatory copy; cards, tables and financial details keep
+   their own reading alignment. */
+.page-qishu-ai :is(
+  #pain-points,
+  #drawing-intelligence,
+  #spatial-canvas,
+  #workflow,
+  #harness,
+  #cost-management,
+  #custom-order,
+  #decoration-business,
+  #cross-scenario,
+  #validation,
+  #differentiation,
+  #competition,
+  #commercial-progress,
+  #market-entry,
+  #market-scale,
+  #risk-control,
+  #next-milestones
+) > .financing-section__copy > .qishu-section__body > .qishu-body-copy {
+  width: min(100%, 68ch);
+  max-width: 68ch;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+}
+
+.page-qishu-ai #competition > .financing-section__copy > .qishu-body-copy {
+  width: min(100%, 68ch);
+  max-width: 68ch;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+}
+
+.page-qishu-ai :is(
+  #pain-points,
+  #drawing-intelligence,
+  #spatial-canvas,
+  #workflow,
+  #harness,
+  #cost-management,
+  #custom-order,
+  #decoration-business,
+  #cross-scenario,
+  #validation,
+  #differentiation,
+  #competition,
+  #commercial-progress,
+  #market-entry,
+  #market-scale,
+  #risk-control,
+  #next-milestones
+) > .financing-section__copy > .qishu-section__body > .qishu-body-copy > p {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: pretty;
+}
+
+.page-qishu-ai #competition > .financing-section__copy > .qishu-body-copy > p {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: pretty;
+}
+
+.page-qishu-ai :is(
+  #pain-points,
+  #drawing-intelligence,
+  #spatial-canvas,
+  #workflow,
+  #harness,
+  #cost-management,
+  #custom-order,
+  #decoration-business,
+  #cross-scenario,
+  #validation,
+  #differentiation,
+  #competition,
+  #commercial-progress,
+  #market-entry,
+  #market-scale,
+  #revenue-tiers,
+  #revenue-pricing,
+  #revenue-expansion,
+  #risk-control,
+  #funding-use,
+  #next-milestones
+) .qishu-section__header > .section-lead,
+.page-qishu-ai :is(
+  #revenue-tiers,
+  #revenue-pricing,
+  #revenue-expansion
+) > .qishu-revenue-page > .qishu-revenue-page__intro > p,
+.page-qishu-ai #next-milestones > .financing-section__copy > .qishu-section__body > .financing-note {
+  width: min(100%, 68ch);
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: pretty;
+}
+
+/* P14 evidence scope: use the available desktop rail for a single readable
+   line, then return to natural wrapping on compact viewports. */
+.page-qishu-ai #validation .qishu-sample-scope-note {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+/* P18 replication principle follows the same single-line desktop treatment as
+   P14's evidence scope, without changing the surrounding market-entry cards. */
+.page-qishu-ai #market-entry .qishu-market-copy-principle {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .page-qishu-ai #validation .qishu-sample-scope-note,
+  .page-qishu-ai #market-entry .qishu-market-copy-principle {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-qishu-ai #validation .qishu-sample-scope-note,
+  .page-qishu-ai #market-entry .qishu-market-copy-principle {
+    max-width: 68ch;
+    white-space: normal;
+    overflow-wrap: normal;
+    text-wrap: pretty;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-qishu-ai .qishu-section__header > h2,
+  .page-qishu-ai .team-section > h2,
+  .page-qishu-ai .advisor-section > h2 {
+    max-width: 24ch;
+  }
+
+  .page-qishu-funding-workbook .xlsx-workbook-toolbar p:not(.section-kicker) {
+    max-width: 60ch;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --text-display: clamp(2.25rem, 10vw, 2.75rem);
+    --text-h1: clamp(1.875rem, 8.5vw, 2.375rem);
+    --text-h2: clamp(1.5rem, 7vw, 1.875rem);
+    --text-h3: clamp(1.1875rem, 5.5vw, 1.375rem);
+  }
+
+  .page-qishu-ai .financing-hero-content h1 {
+    max-width: 10ch;
+  }
+
+  .page-qishu-ai :is(
+    .financing-section__copy > h2,
+    .qishu-section__header > h2,
+    .team-section > h2,
+    .advisor-section > h2,
+    .gibira-story-panel__heading > h3,
+    .qishu-data-copy > h2,
+    .qishu-data-page__intro > h2,
+    .qishu-revenue-page__intro > h2,
+    .cad-model-story__left > h2,
+    .section.qishu-video-section > h2
+  ) {
+    max-width: 20ch;
+  }
+
+  .page-qishu-ai :is(.section-lead, .gibira-story-panel__lead),
+  .page-qishu-funding-workbook .xlsx-workbook-toolbar p:not(.section-kicker) {
+    max-width: 100%;
+  }
+
+  .page-qishu-funding-workbook .xlsx-data-table :is(th, td) {
+    min-width: 112px;
+  }
+}
