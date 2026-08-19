@@ -3,6 +3,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
+const bp = path.join(root, 'bp');
 const qishuBp = path.join(root, 'qishu-bp');
 const excludedHtmlFiles = new Set(['qishu-ai-gpt-analysis-package.html']);
 const externallyHostedAssets = new Set(
@@ -29,6 +30,10 @@ if (!fs.existsSync(path.join(qishuBp, 'index.html'))) {
   throw new Error('Missing Qishu financing page at qishu-bp/index.html');
 }
 
+if (!fs.existsSync(path.join(bp, 'index.html'))) {
+  throw new Error('Missing BP entry redirect at bp/index.html');
+}
+
 const htmlFiles = fs
   .readdirSync(root, { withFileTypes: true })
   .filter(
@@ -50,8 +55,9 @@ copyDirectory(
   externallyHostedAssets,
 );
 copyDirectory(qishuBp, path.join(dist, 'qishu-bp'));
+copyDirectory(bp, path.join(dist, 'bp'));
 
 console.log(
-  `Prepared Netlify bundle: ${htmlFiles.length} website HTML pages, assets/, and qishu-bp/; ` +
+  `Prepared Netlify bundle: ${htmlFiles.length} website HTML pages, assets/, bp/, and qishu-bp/; ` +
     `${externallyHostedAssets.size} externally hosted media files excluded.`,
 );

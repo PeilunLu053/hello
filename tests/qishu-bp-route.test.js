@@ -60,7 +60,9 @@ test('Qishu financing page is packaged as a self-contained subpath', () => {
 test('Netlify routes the canonical subpath and its asset URLs without affecting other pages', () => {
   const config = read('netlify.toml');
   const prepareScript = read('scripts/prepare-netlify.js');
+  const bpRedirect = read('bp/index.html');
 
+  assert.match(bpRedirect, /location\.replace\('\.\.\/qishu-bp\/'/, 'the public /bp/ entry should redirect to the Qishu BP path');
   assert.match(config, /from = "\/qishu-bp"\s+to = "\/qishu-bp\/"\s+status = 301/, 'the route without a slash should redirect to the canonical trailing-slash URL');
   assert.match(config, /from = "\/qishu-bp\/assets\/\*"\s+to = "\/assets\/:splat"\s+status = 200/, 'missing subpath assets should reuse matching website assets');
   for (const asset of externallyHostedAssetRefs) {
@@ -71,5 +73,6 @@ test('Netlify routes the canonical subpath and its asset URLs without affecting 
       `${asset} should keep its dedicated external redirect`,
     );
   }
+  assert.match(prepareScript, /copyDirectory\(bp, path\.join\(dist, 'bp'\)\)/, 'the deployment bundle should include the public BP entry redirect');
   assert.match(prepareScript, /copyDirectory\(qishuBp, path\.join\(dist, 'qishu-bp'\)\)/, 'the Netlify bundle should include the qishu-bp directory');
 });

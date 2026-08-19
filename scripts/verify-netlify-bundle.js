@@ -4,6 +4,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
+const bp = path.join(root, 'bp');
 const qishuBp = path.join(root, 'qishu-bp');
 const excludedHtmlFiles = new Set(['qishu-ai-gpt-analysis-package.html']);
 const externallyHostedAssets = [
@@ -38,6 +39,10 @@ assert.ok(
   'dist/assets/ should exist before bundle verification',
 );
 assert.ok(
+  fs.existsSync(path.join(dist, 'bp', 'index.html')),
+  'dist/bp/index.html should exist before bundle verification',
+);
+assert.ok(
   fs.existsSync(path.join(dist, 'qishu-bp', 'index.html')),
   'dist/qishu-bp/index.html should exist before bundle verification',
 );
@@ -68,6 +73,8 @@ const expectedAssetFiles = listRelativeFiles(path.join(root, 'assets')).filter(
   (file) => !externallyHostedAssets.includes(`assets/${file}`),
 );
 const publishedAssetFiles = listRelativeFiles(path.join(dist, 'assets'));
+const expectedBpFiles = listRelativeFiles(bp);
+const publishedBpFiles = listRelativeFiles(path.join(dist, 'bp'));
 const expectedQishuBpFiles = listRelativeFiles(qishuBp);
 const publishedQishuBpFiles = listRelativeFiles(path.join(dist, 'qishu-bp'));
 
@@ -75,6 +82,11 @@ assert.deepStrictEqual(
   publishedAssetFiles,
   expectedAssetFiles,
   'dist/assets/ should match the source asset set except externally hosted media',
+);
+assert.deepStrictEqual(
+  publishedBpFiles,
+  expectedBpFiles,
+  'dist/bp/ should match the BP entry redirect source files',
 );
 assert.deepStrictEqual(
   publishedQishuBpFiles,
